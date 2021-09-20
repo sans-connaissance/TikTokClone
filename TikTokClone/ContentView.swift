@@ -17,6 +17,7 @@ struct ContentView: View {
 struct Home: View {
     
     @State var index = 0
+    @State var top = 0
     
     var body: some View {
         ZStack {
@@ -25,20 +26,20 @@ struct Home: View {
                 //top menu
                 HStack(spacing: 15) {
                     Button {
-                      
+                      top = 0
                     } label: {
                         Text("Following")
-                            .foregroundColor(index == 0 ? .white : Color.white.opacity(0.45))
-                            .fontWeight(index == 0 ? .bold : .none)
+                            .foregroundColor(top == 0 ? .white : Color.white.opacity(0.45))
+                            .fontWeight(top == 0 ? .bold : .none)
                             .padding(.vertical)
                     }
                     
                     Button {
-                      
+                      top = 1
                     } label: {
                         Text("For You")
-                            .foregroundColor(index == 1 ? .white : Color.white.opacity(0.45))
-                            .fontWeight(index == 1 ? .bold : .none)
+                            .foregroundColor(top == 1 ? .white : Color.white.opacity(0.45))
+                            .fontWeight(top == 1 ? .bold : .none)
                             .padding(.vertical)
                     }
 
@@ -103,7 +104,7 @@ struct Home: View {
                 //bottom menu
                 HStack(spacing: 0){
                     Button(action: {
-                        self.index = 0
+                        index = 0
                     }, label: {
                         Image("home")
                             .resizable()
@@ -115,7 +116,7 @@ struct Home: View {
                     Spacer(minLength: 0)
                     
                     Button(action: {
-                        self.index = 1
+                        index = 1
                     }, label: {
                         Image("search")
                             .resizable()
@@ -139,7 +140,7 @@ struct Home: View {
                     Spacer(minLength: 0)
                     
                     Button(action: {
-                        self.index = 2
+                        index = 2
                     }, label: {
                         Image("comment")
                             .resizable()
@@ -151,7 +152,7 @@ struct Home: View {
                     Spacer(minLength: 0)
                     
                     Button(action: {
-                        self.index = 3
+                        index = 3
                     }, label: {
                         Image("profile")
                             .resizable()
