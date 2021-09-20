@@ -20,31 +20,112 @@ struct Home: View {
     
     var body: some View {
         ZStack {
-            VStack {
+            
+            VStack{
+                //top menu
+                HStack(spacing: 15) {
+                    Button {
+                      
+                    } label: {
+                        Text("Following")
+                            .foregroundColor(index == 0 ? .white : Color.white.opacity(0.45))
+                            .fontWeight(index == 0 ? .bold : .none)
+                            .padding(.vertical)
+                    }
+                    
+                    Button {
+                      
+                    } label: {
+                        Text("For You")
+                            .foregroundColor(index == 1 ? .white : Color.white.opacity(0.45))
+                            .fontWeight(index == 1 ? .bold : .none)
+                            .padding(.vertical)
+                    }
+
+
+                }
+                
                 Spacer()
-                HStack(spacing: 0) {
-                    Button(action: {
+                //right menu
+                HStack{
+                    Spacer()
+                    VStack(spacing: 35){
                         
+                        Button(action: {
+                            
+                        }, label: {
+                            Image("pic")
+                                .renderingMode(.original)
+                                .resizable()
+                                .frame(width: 55, height: 55)
+                                .clipShape(Circle())
+                        })
+                        
+                        Button(action: {
+                            
+                        }, label: {
+                            VStack {
+                                Image(systemName: "suit.heart.fill")
+                                    .font(.title)
+                                    .foregroundColor(.white)
+                                Text("400K")
+                                    .foregroundColor(.white)
+                            }
+                        })
+                        
+                        Button(action: {
+                            
+                        }, label: {
+                            VStack(spacing: 8) {
+                                Image(systemName: "message.fill")
+                                    .font(.title)
+                                    .foregroundColor(.white)
+                                Text("1542")
+                                    .foregroundColor(.white)
+                            }
+                        })
+                        
+                        Button(action: {
+                            
+                        }, label: {
+                            VStack{
+                                Image(systemName: "arrowshape.turn.up.right.fill")
+                                    .font(.title)
+                                    .foregroundColor(.white)
+                                Text("Share")
+                                    .foregroundColor(.white)
+                            }
+                        })
+                    }
+                    .padding(.bottom, 55)
+                    .padding(.trailing)
+                }
+                //bottom menu
+                HStack(spacing: 0){
+                    Button(action: {
+                        self.index = 0
                     }, label: {
                         Image("home")
                             .resizable()
                             .frame(width: 25, height: 25)
-                            .foregroundColor(index == 0 ? .white : Color.white.opacity(0.35))
-                            .padding()
+                            .foregroundColor(self.index == 0 ? .white: Color.white.opacity(0.35))
+                            .padding(.horizontal)
                     })
+                    
                     Spacer(minLength: 0)
                     
                     Button(action: {
-                        
+                        self.index = 1
                     }, label: {
                         Image("search")
                             .resizable()
                             .frame(width: 25, height: 25)
-                            .foregroundColor(index == 1 ? .white : Color.white.opacity(0.35))
-                            .padding()
+                            .foregroundColor(self.index == 1 ? .white : Color.white.opacity(0.35))
+                            .padding(.horizontal)
                     })
                     
                     Spacer(minLength: 0)
+                    
                     Button(action: {
                         
                     }, label: {
@@ -56,33 +137,40 @@ struct Home: View {
                     })
                     
                     Spacer(minLength: 0)
+                    
                     Button(action: {
-                        
+                        self.index = 2
                     }, label: {
                         Image("comment")
                             .resizable()
                             .frame(width: 25, height: 25)
-                            .foregroundColor(index == 2 ? .white : Color.white.opacity(0.35))
-                            .padding()
+                            .foregroundColor(self.index == 2 ? .white : Color.white.opacity(0.35))
+                            .padding(.horizontal)
                     })
                     
                     Spacer(minLength: 0)
+                    
                     Button(action: {
-                        
+                        self.index = 3
                     }, label: {
-                        Image("upload")
+                        Image("profile")
                             .resizable()
                             .frame(width: 25, height: 25)
-                            .foregroundColor(index == 3 ? .white : Color.white.opacity(0.35))
-                            .padding()
+                            .foregroundColor(self.index == 3 ? .white : Color.white.opacity(0.35))
+                            .padding(.horizontal)
                     })
+                    
                 }
                 .padding(.horizontal)
             }
+            .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
+            .padding(.bottom, (UIApplication.shared.windows.first?.safeAreaInsets.bottom)! + 5)
         }
-        
+        .background(Color.black.edgesIgnoringSafeArea(.all))
+        .edgesIgnoringSafeArea(.all)
     }
 }
+
 
 
 
