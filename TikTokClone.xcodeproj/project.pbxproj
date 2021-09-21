@@ -19,6 +19,7 @@
 		411C2BD226F90D820068165E /* video6.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 411C2BCC26F90D820068165E /* video6.mp4 */; };
 		411C2BD726FA54F30068165E /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411C2BD626FA54F30068165E /* Home.swift */; };
 		411C2BD926FA55190068165E /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411C2BD826FA55190068165E /* Video.swift */; };
+		411C2BDB26FA5A950068165E /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411C2BDA26FA5A950068165E /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		411C2BCC26F90D820068165E /* video6.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video6.mp4; sourceTree = "<group>"; };
 		411C2BD626FA54F30068165E /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		411C2BD826FA55190068165E /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		411C2BDA26FA5A950068165E /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				411C2BBA26F90CEA0068165E /* ContentView.swift */,
 				411C2BD626FA54F30068165E /* Home.swift */,
+				411C2BDA26FA5A950068165E /* Player.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				411C2BBB26F90CEA0068165E /* ContentView.swift in Sources */,
 				411C2BD926FA55190068165E /* Video.swift in Sources */,
 				411C2BD726FA54F30068165E /* Home.swift in Sources */,
+				411C2BDB26FA5A950068165E /* Player.swift in Sources */,
 				411C2BB926F90CEA0068165E /* TikTokCloneApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
