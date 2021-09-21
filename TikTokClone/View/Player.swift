@@ -21,8 +21,12 @@ struct PlayerView: View {
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                         .offset(y: -5)
                 }
+                .onAppear {
+                    data[index].player.play()
+                }
             }
         }
+        
     }
 }
 
