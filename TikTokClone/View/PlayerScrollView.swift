@@ -56,7 +56,21 @@ struct PlayerScrollView: UIViewRepresentable {
         }
         
         func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-            let index = Int(scrollView.contentOffset.y / UIScreen.main.bounds.height)
+            let currentIndex = Int(scrollView.contentOffset.y / UIScreen.main.bounds.height)
+            
+            var index = 0
+            
+            // turns off all the other videos so that only the view on screen is played. 
+            if currentIndex != index {
+                index = currentIndex
+                
+                for i in 0..<view.data.count {
+                    view.data[i].player.seek(to: .zero)
+                    view.data[i].player.play()
+                }
+                
+                view.data[index].player.play()
+            }
         }
     }
 }
