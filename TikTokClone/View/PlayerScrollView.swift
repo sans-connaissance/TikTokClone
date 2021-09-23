@@ -60,7 +60,7 @@ struct PlayerScrollView: UIViewRepresentable {
             
             var index = 0
             
-            // turns off all the other videos so that only the view on screen is played. 
+            // turns off all the other videos so that only the view on screen is played.
             if currentIndex != index {
                 index = currentIndex
                 
@@ -70,6 +70,13 @@ struct PlayerScrollView: UIViewRepresentable {
                 }
                 
                 view.data[index].player.play()
+                view.data[index].player.actionAtItemEnd = .none
+                
+                NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: view.data[index].player.currentItem, queue: .main) { _ in
+                    self.view.data[index].replay = true
+                    
+                    
+                }
             }
         }
     }

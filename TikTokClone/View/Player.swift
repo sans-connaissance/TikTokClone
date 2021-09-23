@@ -20,13 +20,31 @@ struct PlayerView: View {
                     Player(player: data[index].player)
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                         .offset(y: -5)
-                }
-                .onAppear {
-                    data[index].player.play()
+                    if self.data[index].replay {
+                        Button {
+                            //this code can be refactored into a class or something.
+                            //It's also used in the PlayerScrollView struct
+                            self.data[index].replay = false
+                            self.data[index].player.seek(to: .zero)
+                            self.data[index].player.play()
+                        } label: {
+                            Image(systemName: "goforward")
+                                .resizable()
+                                .frame(width: 55, height: 60)
+                                .foregroundColor(.white)
+                        }
+                    }
                 }
             }
         }
-        
+        .onAppear{
+            self.data[0].player.play()
+            self.data[0].player.actionAtItemEnd = .none
+            
+            NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.data[0].player.currentItem, queue: .main) { _ in
+                self.data[0].replay = true
+            }
+        }
     }
 }
 
@@ -34,7 +52,7 @@ struct PlayerView: View {
 struct Player: UIViewControllerRepresentable {
     
     var player: AVPlayer
-   
+    
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         
         let view = AVPlayerViewController()
